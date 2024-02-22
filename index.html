@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      //Is number
+      let newNumber;
+      function isValid(input){
+            if(input === undefined || isNaN(input) || input === null){
+                console.log("Input must be a number.");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        //Is a string
+        function isAString(aString){
+            if(typeof aString === String){
+                console.log("Input must be a string.");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+
+        function add7(aNumber){
+            
+            if(isValid(aNumber)){
+                newNumber = parseInt(aNumber) +7;
+                console.log(`The sum of 7 and ${aNumber} is ${newNumber}`);
+            }
+            
+             
+        }
+
+         function multiply(aNumber, aNumberTwo ){
+            if(isValid(aNumber) && isValid(aNumberTwo)){
+                newNumber = parseInt(aNumber)*parseInt(aNumberTwo);
+                console.log(`The product of ${aNumber} and ${aNumberTwo} is ${newNumber}`);
+            }
+         }
+
+         function capitalize(aString){
+            
+            if(isAString(aString)){
+                aString = toLowerCase(aString);
+                
+                console.log()
+                
+            }
+         }
+    </script>
+
+
+
+</body>
+</html>
