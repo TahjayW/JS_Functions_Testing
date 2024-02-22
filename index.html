@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-      //Is number
-      let newNumber;
-      function isValid(input){
-            if(input === undefined || isNaN(input) || input === null){
-                console.log("Input must be a number.");
+        //error message
+        function errorMsg(input){
+            console.log(`The data type entered (${typeof input}) is incorrect for this operation.`);
+        }
+        //Is number
+        let newNumber;
+        function isValid(input) {
+            if (input === undefined || (typeof input === 'string' && input.length===0) || input === null) {
+                errorMsg(input);
                 return false;
             }
-            else{
+            else {
                 return true;
             }
         }
         //Is a string
-        function isAString(aString){
-            if(typeof aString === String){
-                console.log("Input must be a string.");
-                return false;
-            }
-            else{
+        function isAString(aString) {
+            let text = aString;
+            if (typeof text === 'string') {
+                console.log(`This is a ${typeof text}`);
                 return true;
+            }
+            else {
+                errorMsg(input);
+                return false;
             }
         }
 
-        function add7(aNumber){
-            
-            if(isValid(aNumber)){
-                newNumber = parseInt(aNumber) +7;
+        function add7(aNumber) {
+
+            if (isValid(aNumber)) {
+                newNumber = parseInt(aNumber) + 7;
                 console.log(`The sum of 7 and ${aNumber} is ${newNumber}`);
             }
             
-             
+
         }
 
-         function multiply(aNumber, aNumberTwo ){
-            if(isValid(aNumber) && isValid(aNumberTwo)){
-                newNumber = parseInt(aNumber)*parseInt(aNumberTwo);
+        function multiply(aNumber, aNumberTwo) {
+            if (isValid(aNumber) && isValid(aNumberTwo)) {
+                newNumber = parseInt(aNumber) * parseInt(aNumberTwo);
                 console.log(`The product of ${aNumber} and ${aNumberTwo} is ${newNumber}`);
             }
-         }
+        }
 
-         function capitalize(aString){
-            
-            if(isAString(aString)){
-                aString = toLowerCase(aString);
+        function capitalize(aString) {
+
+            if (isAString(aString)) {
+                let firstLetter = aString.substring(0,1);
+                let newText = `${firstLetter.toUpperCase()}${aString.substring(1,aString.length)} `;
+                console.log(newText);
                 
-                console.log()
-                
+
             }
-         }
+        }
+        function lastLetter(aString) {
+            if(isAString(aString)){
+                console.log(aString.substring(aString.length, aString.length-1))
+            }else{
+                errorMsg();
+            }
+
+        }
+
+
     </script>
 
 
 
 </body>
+
 </html>
